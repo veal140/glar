@@ -1,35 +1,105 @@
-<!DOCTYPE html>
-<html>
-<body>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Swap and Text Reveal</title>
+        <style>
+            /* CSS for centering the content */
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh; /* Full screen height */
+                margin: 0;
+                font-family: sans-serif;
+                text-align: center;
+            }
 
-<h1>WHOS'S PILLOW</h1>
+            /* Styling for the FIRST image (the one you click) */
+            #myImage {
+                width: 300px;
+                height: auto;
+                cursor: pointer; /* Indicates clickability */
+                border-radius: 10px;
+                transition: transform 0.2s;
+            }
 
+            #myImage:hover {
+                transform: scale(1.05);
+            }
 
-<button onclick="myFunction()">CLICK</button>
+            /* Styling for the SECOND image */
+            #secondImage {
+                width: 300px; /* Keep the same size for a smooth swap */
+                height: auto;
+                border-radius: 10px;
+                margin-top: 20px; /* Space above the image */
+                /* Key: Starts HIDDEN */
+                display: none;
+            }
 
-<p id="demo"></p>
+            /* Styling for the text box */
+            #secretText {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: transparent;
+                border: 1px solid #ccc;
+                border-radius: 2px;
+                /* Key: Starts HIDDEN */
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="myImage" src="assets/larr2.png" alt="Click Me Image" />
 
-<script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "OUR PILLOW";
-}
-</script>
+        <div id="secretText">
+            <h2>HAPPY BIRTHDAY JESSIE!!!!</h2>
+            <p>
+                Please come back and visit if you'd like to continue finding out
+                more about Giant Larry!
+            </p>
+        </div>
 
+        <img
+            id="secondImage"
+            src="assets/larr-copy.png"
+            alt="The new image that appears"
+        />
 
+        <script>
+            // Get all three elements by their IDs
+            const image = document.getElementById("myImage");
+            const text = document.getElementById("secretText");
+            const secondImage = document.getElementById("secondImage");
 
+            // Function to handle the state change (Toggle)
+            function toggleState() {
+                // Check if the ORIGINAL image is currently visible.
+                // If it is, this is the FIRST CLICK, and we need to SWAP.
+                if (image.style.display !== "none") {
+                    // --- STATE 1: REVEAL / SWAP ---
 
-   <h2>PANIC BUTTON</h2>
-   <button id="show-image-button">OH HELL</button>
-   <img id="my-image" src="/Users/user/Desktop/pillow/signal-2023-03-22-182442.gif" style="display: none;">
-   <script>
-      const showImageButton = document.getElementById("show-image-button");
-      const myImage = document.getElementById("my-image"); 
-      showImageButton.addEventListener("click", () => { 
-         myImage.style.display = "block"; 
-      });
-   </script>
+                    text.style.display = "block"; // SHOW the text
+                    secondImage.style.display = "block"; // SHOW the new image
+                    image.style.display = "none"; // HIDE the original image
+                } else {
+                    // --- STATE 2: RESET ---
 
+                    text.style.display = "none"; // HIDE the text
+                    secondImage.style.display = "none"; // HIDE the new image
+                    image.style.display = "block"; // SHOW the original image
+                }
+            }
 
+            // Attach the function to the FIRST image's click event
+            image.addEventListener("click", toggleState);
 
-</body>
+            // Attach the SAME function to the SECOND image's click event
+            // This allows you to click the new image to reset the page.
+            secondImage.addEventListener("click", toggleState);
+        </script>
+    </body>
 </html>
