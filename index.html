@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>WHOS'S PILLOW</h1>
+
+
+<button onclick="myFunction()">CLICK</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "OUR PILLOW";
+}
+</script>
+
+
+
+
+   <h2>PANIC BUTTON</h2>
+   <button id="show-image-button">OH HELL</button>
+   <img id="my-image" src="/Users/user/Desktop/pillow/signal-2023-03-22-182442.gif" style="display: none;">
+   <script>
+      const showImageButton = document.getElementById("show-image-button");
+      const myImage = document.getElementById("my-image"); 
+      showImageButton.addEventListener("click", () => { 
+         myImage.style.display = "block"; 
+      });
+   </script>
+
+
+
+</body>
+</html>
