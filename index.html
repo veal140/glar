@@ -1,105 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>WE'RE WORKIN!</title>
-        <style>
-            /* CSS for centering the content */
-            body {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh; /* Full screen height */
-                margin: 0;
-                font-family: sans-serif;
-                text-align: center;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pigeon of the Week</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-            /* Styling for the FIRST image (the one you click) */
-            #myImage {
-                width: 300px;
-                height: auto;
-                cursor: pointer; /* Indicates clickability */
-                border-radius: 10px;
-                transition: transform 0.2s;
-            }
+    <main class="container">
+        <h1>Pigeon of the Week</h1>
 
-            #myImage:hover {
-                transform: scale(1.05);
-            }
+        <a href="snow.html" class="image-card">
+            <img src="assets/larr2.png" alt="Pigeon of the Week preview" id="mainImage">
+            <p class="caption" id="mainCaption">Click here to see the Pigeon of the week</p>
+        </a>
+    </main>
 
-            /* Styling for the SECOND image */
-            #secondImage {
-                width: 1000px; /* Keep the same size for a smooth swap */
-                height: auto;
-                border-radius: 10px;
-                margin-top: 5px; /* Space above the image */
-                /* Key: Starts HIDDEN */
-                display: none;
-            }
-
-            /* Styling for the text box */
-            #secretText {
-                margin-top: 20px;
-                padding: 15px;
-                background-color: transparent;
-                border: 1px solid #ccc;
-                border-radius: 30px;
-                /* Key: Starts HIDDEN */
-                display: none;
-            }
-        </style>
-    </head>
-    <body>
-        <img id="myImage" src="assets/larr2.png" alt="Click Me Image" />
-
-        <div id="secretText">
-            <h2>HI JESSIE!!!!</h2>
-            <p>
-                Have a great trip!!<br /><br />The birds will be very hungry
-                when you return.
-            </p>
-        </div>
-        <!-- <a href="snow.html"> snow </a> -->
-        <img
-            id="secondImage"
-            src="assets/snowscape.png"
-            alt="The new image that appears"
-        />
-
-        <script>
-            // Get all three elements by their IDs
-            const image = document.getElementById("myImage");
-            const text = document.getElementById("secretText");
-            const secondImage = document.getElementById("secondImage");
-
-            // Function to handle the state change (Toggle)
-            function toggleState() {
-                // Check if the ORIGINAL image is currently visible.
-                // If it is, this is the FIRST CLICK, and we need to SWAP.
-                if (image.style.display !== "none") {
-                    // --- STATE 1: REVEAL / SWAP ---
-
-                    text.style.display = "block"; // SHOW the text
-                    secondImage.style.display = "block"; // SHOW the new image
-                    image.style.display = "none"; // HIDE the original image
-                } else {
-                    // --- STATE 2: RESET ---
-
-                    text.style.display = "none"; // HIDE the text
-                    secondImage.style.display = "none"; // HIDE the new image
-                    image.style.display = "block"; // SHOW the original image
-                }
-            }
-
-            // Attach the function to the FIRST image's click event
-            image.addEventListener("click", toggleState);
-
-            // Attach the SAME function to the SECOND image's click event
-            // This allows you to click the new image to reset the page.
-            secondImage.addEventListener("click", toggleState);
-        </script>
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>

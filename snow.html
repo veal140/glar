@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pigeon of the Week Reveal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .snow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+        .featured-image {
+            max-width: 90vw;
+            max-height: 65vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        .content-block {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .caption {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 16px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="snow-container">
+        <img src="assets/rooster.png" alt="Pigeon of the Week Revealed" id="featuredImage" class="featured-image">
+
+        <div class="content-block">
+            <p class="caption" id="featuredCaption">Enjoying the snowy season!</p>
+            <a href="index.html" class="back-button">← Back to Main Page</a>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
